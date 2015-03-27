@@ -1,6 +1,7 @@
 package com.anseey.betterweather;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.res.XmlResourceParser;
 import android.os.Bundle;
 import android.util.Log;
@@ -54,6 +55,14 @@ public class MainActivity extends Activity {
     public void clickUpdate(View v) {
         //TODO update
     }
+
+    public void onClickCity(View v) {
+        //TODO update
+        Intent intent = new Intent(this,CityActivity.class);
+        startActivity(intent);
+
+    }
+
 
     @Override
     protected void onStart() {

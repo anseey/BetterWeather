@@ -16,6 +16,7 @@
             android:id="@+id/title_city"
             android:layout_width="46dp"
             android:layout_height="46dp"
+            android:onClick="onClickCity"
             android:src="@drawable/title_city" />
 
         <View
@@ -32,6 +33,7 @@
             android:layout_marginLeft="8dp"
             android:layout_toRightOf="@id/title_city"
             android:text="天气预报"
+            android:singleLine="true"
             android:textColor="#ffffff"
             android:textSize="22sp" />
 
