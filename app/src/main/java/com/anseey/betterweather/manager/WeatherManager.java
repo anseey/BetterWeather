@@ -7,8 +7,6 @@ import com.anseey.betterweather.model.WeatherMod;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
-import java.io.IOException;
-
 /**
  * Created by anseey on 15/3/29.
  */
@@ -37,8 +35,14 @@ public class WeatherManager {
                     weatherMod.setCity(doc.select("city").first().text());
                     weatherMod.setUpdatetime(doc.select("updatetime").first().text());
                     weatherMod.setShidu(doc.select("shidu").first().text());
-                    weatherMod.setPm25(Integer.valueOf(doc.select("pm25").first().text()));
-                    weatherMod.setQuality(doc.select("quality").first().text());
+                    try {
+                        weatherMod.setPm25(Integer.valueOf(doc.select("pm25").first().text()));
+                        weatherMod.setQuality(doc.select("quality").first().text());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+
+                    }
+
                     weatherMod.setDate(doc.select("date").first().text());
                     weatherMod.setLow(doc.select("low").first().text());
                     weatherMod.setHigh(doc.select("high").first().text());
@@ -46,7 +50,7 @@ public class WeatherManager {
                     weatherMod.setFengxiang(doc.select("fengxiang").first().text());
 
                     onWeatherInfoLoaded.onFinish(weatherMod);
-                } catch (IOException e1) {
+                } catch (Exception e1) {
 //                                e1.printStackTrace();
                     onWeatherInfoLoaded.onError(e1);
                 }
